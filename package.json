@@ -1,0 +1,19 @@
+{
+  "name": "electron-youtube-downloader",
+  "version": "1.0.0",
+  "description": "Electron YouTube Downloader",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  
+  "author": "Xavier Lawrence",
+  "devDependencies": {
+    "electron": "^1.4.1"
+  },
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "material-design-lite": "^1.2.1",
+    "youtube-dl": "^1.11.1"
+  }
+}
