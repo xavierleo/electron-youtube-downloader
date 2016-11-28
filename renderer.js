@@ -16,11 +16,11 @@ $('.form-submit').on('click', function(event){
     getInfo(searchURL);
 });
 
-$('#download-video').on('click', function(event){
-    event.preventDefault();
+$('#search-details').on('click', '.download-video', function(event){
+    // event.preventDefault();
     let url = $(this).data('url');
-    alert(url);
-    // downloadVideo(url);
+    // alert(url);
+    downloadVideo(url);
 });
 function getInfo(infoUrl){
     let url = infoUrl;
@@ -40,16 +40,16 @@ function getInfo(infoUrl){
                 html +=     '</div>';
                 html +=     '<div class="col-xs-9">';
                 html +=         '<h5>' + element._filename + '</h5>';
-                html +=         '<button class="btn btn-default" id="download-video" onclink="downloadVideo('+ downloadURL.concat(info.id) +');" type="submit">Download</button><p class="precentage"></p>';
+                html +=         '<button class="btn btn-default download-video" data-url="'+downloadURL.concat(info.id)+'" type="submit">Download</button><p class="precentage"></p>';
                 html +=     '</div>';
                 html += '</div>';
-                console.log('id:', element.id);
-                console.log('title:', element.title);
-                console.log('url:', element.url);
-                console.log('thumbnail:', element.thumbnail);
-                console.log('description:', element.description);
-                console.log('filename:', element._filename);
-                console.log('format id:', element.format_id);
+                // console.log('id:', element.id);
+                // console.log('title:', element.title);
+                // console.log('url:', element.url);
+                // console.log('thumbnail:', element.thumbnail);
+                // console.log('description:', element.description);
+                // console.log('filename:', element._filename);
+                // console.log('format id:', element.format_id);
             }, this);
             
         }else {
@@ -63,7 +63,7 @@ function getInfo(infoUrl){
             html +=     '</div>';
             html +=     '<div class="col-xs-9">';
             html +=         '<h5>' + info._filename + '</h5>';
-            html +=         '<button class="btn btn-default" id="download-video" onclink="downloadVideo('+ downloadURL.concat(info.id) +');" type="submit">Download</button><p class="precentage"></p>';
+            html +=         '<button class="btn btn-default download-video" data-url="'+downloadURL.concat(info.id)+'" type="submit">Download</button><p class="precentage"></p>';
             html +=     '</div>';
             html += '</div>';
 
@@ -104,8 +104,8 @@ function downloadVideo(url){
         // `size` should not be 0 here.
         if (size) {
             let percent = (pos / size * 100).toFixed(2);
-            $('.percentage').html(' ');
-            $('.percentage').append(percent + '%');
+            
+            console.log(percent + '%');
             process.stdout.cursorTo(0);
             process.stdout.clearLine(1);
             process.stdout.write(percent + '%');
