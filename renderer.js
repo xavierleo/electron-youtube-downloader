@@ -30,6 +30,19 @@ function getInfo(infoUrl){
         
         if(util.isArray(info)){
             info.forEach(function(element) {
+                let downloadURL = "https://www.youtube.com/watch?v=";
+                html += '<div class="row">';
+                html +=     '<div class="col-xs-12">';
+                html +=         '<h3>' + element.title + '</h3>';
+                html +=     '</div>';
+                html +=     '<div class="col-xs-3">';
+                html +=         '<img src="'+ element.thumbnail +'" class="img-responsive"/>';
+                html +=     '</div>';
+                html +=     '<div class="col-xs-9">';
+                html +=         '<h5>' + element._filename + '</h5>';
+                html +=         '<button class="btn btn-default" id="download-video" onclink="downloadVideo('+ downloadURL.concat(info.id) +');" type="submit">Download</button><p class="precentage"></p>';
+                html +=     '</div>';
+                html += '</div>';
                 console.log('id:', element.id);
                 console.log('title:', element.title);
                 console.log('url:', element.url);
@@ -67,7 +80,6 @@ function getInfo(infoUrl){
     });
 }
 function downloadVideo(url){
-    alert('asdf');
     let video = youtubedl(url,
     // Optional arguments passed to youtube-dl.
     ['--format=18'],
