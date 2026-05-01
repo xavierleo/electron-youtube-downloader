@@ -1,0 +1,235 @@
+:root {
+  color: #152018;
+  background: #edf1ea;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  border-radius: 6px;
+  background: #17251d;
+  color: #f8fbf4;
+  cursor: pointer;
+  font-weight: 700;
+  min-height: 44px;
+  padding: 0 18px;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.app-shell {
+  min-height: 100vh;
+  padding: 28px;
+  background:
+    linear-gradient(135deg, rgba(46, 94, 79, 0.12), transparent 36%),
+    #edf1ea;
+}
+
+.workspace {
+  display: grid;
+  gap: 18px;
+  margin: 0 auto;
+  max-width: 980px;
+}
+
+.app-header {
+  align-items: end;
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.eyebrow {
+  color: #597164;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  margin: 0 0 6px;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 4.2rem);
+  line-height: 0.94;
+  margin-bottom: 0;
+}
+
+h2 {
+  font-size: 1.45rem;
+  line-height: 1.16;
+  margin-bottom: 10px;
+}
+
+.status-pill {
+  border: 1px solid #c7d2c3;
+  border-radius: 999px;
+  color: #324138;
+  flex: 0 0 auto;
+  font-size: 0.86rem;
+  font-weight: 800;
+  padding: 8px 12px;
+}
+
+.status-downloading {
+  background: #ffeeb3;
+  border-color: #e2c75f;
+}
+
+.status-complete {
+  background: #cbeed5;
+  border-color: #8ecb9b;
+}
+
+.status-error {
+  background: #ffd7ce;
+  border-color: #df8b78;
+}
+
+.url-form {
+  background: #ffffff;
+  border: 1px solid #d8dfd4;
+  border-radius: 8px;
+  padding: 18px;
+}
+
+.url-form label {
+  display: block;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.url-row {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr auto;
+}
+
+.url-row input {
+  border: 1px solid #b8c4b4;
+  border-radius: 6px;
+  min-width: 0;
+  padding: 0 14px;
+}
+
+.error-message {
+  background: #ffe7e1;
+  border: 1px solid #dda08f;
+  border-radius: 8px;
+  color: #8b2d1b;
+  margin: 0;
+  padding: 12px 14px;
+}
+
+.result-panel {
+  align-items: stretch;
+  background: #ffffff;
+  border: 1px solid #d8dfd4;
+  border-radius: 8px;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: minmax(220px, 38%) 1fr;
+  min-height: 260px;
+  overflow: hidden;
+}
+
+.thumbnail-frame {
+  background: #dfe7db;
+  min-height: 260px;
+}
+
+.thumbnail-frame img,
+.thumbnail-empty {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.thumbnail-empty {
+  background: repeating-linear-gradient(135deg, #d4ddd0, #d4ddd0 10px, #e7ede4 10px, #e7ede4 20px);
+}
+
+.video-details,
+.empty-state {
+  align-self: center;
+  padding: 24px 24px 24px 0;
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  padding: 34px;
+}
+
+.progress-panel {
+  background: #17251d;
+  border-radius: 8px;
+  color: #f8fbf4;
+  padding: 16px;
+}
+
+.progress-meta {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.progress-track {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  height: 12px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  background: #d7f36a;
+  height: 100%;
+  transition: width 180ms ease;
+}
+
+@media (max-width: 720px) {
+  .app-shell {
+    padding: 18px;
+  }
+
+  .app-header,
+  .url-row {
+    align-items: stretch;
+    display: grid;
+  }
+
+  .result-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .video-details {
+    padding: 0 20px 20px;
+  }
+}
